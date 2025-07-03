@@ -5,173 +5,206 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Abdullah Umar Nasib</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <style>
-        :root {
-            --bg-color: #f9f9f9;
-            --text-color: #222;
-            --accent-color: #007acc;
-            --header-bg: #fff;
-        }
-
+        /* Reset */
         * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
         }
 
         body {
-            display: flex;
-            justify-content: center;
-            padding: 2rem 1rem;
+          font-family: 'Inter', sans-serif;
+          background: #f5f7fa;
+          color: #333;
+          display: flex;
+          min-height: 100vh;
         }
 
-        .container {
-            width: 100%;
-            max-width: 800px;
-            background: var(--header-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        /* Sidebar */
+        .sidebar {
+          background: #1e293b;
+          color: #fff;
+          width: 280px;
+          padding: 2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          position: fixed;
+          height: 100vh;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 1rem;
+        .sidebar img {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          object-fit: cover;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          margin-bottom: 1.5rem;
         }
 
-        h1 {
-            margin-bottom: 0.25rem;
+        .sidebar h1 {
+          font-weight: 600;
+          font-size: 1.8rem;
+          margin-bottom: 0.25rem;
+          text-align: center;
         }
 
-        .subtitle {
-            font-size: 0.95rem;
-            color: #555;
+        .sidebar p.subtitle {
+          font-size: 0.9rem;
+          color: #a1aebf;
+          text-align: center;
+          margin-bottom: 2rem;
+          line-height: 1.3;
         }
 
-        /* Profile Photo */
-        .profile-photo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
+        .sidebar nav ul {
+          list-style: none;
+          width: 100%;
         }
 
-        .profile-photo img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .sidebar nav ul li {
+          margin-bottom: 1rem;
         }
 
-        section {
-            margin-bottom: 2rem;
+        .sidebar nav ul li a {
+          color: #a1aebf;
+          text-decoration: none;
+          font-weight: 500;
+          display: block;
+          padding: 0.4rem 0.5rem;
+          border-radius: 4px;
+          transition: background 0.3s ease;
         }
 
-        h2 {
-            margin-top: 0;
-            color: #333;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.25rem;
+        .sidebar nav ul li a:hover {
+          background: #334155;
+          color: #fff;
         }
 
-        ul {
-            padding-left: 1.2rem;
+        /* Main content */
+        main {
+          margin-left: 280px;
+          padding: 3rem 2rem;
+          flex: 1;
+          background: #fff;
         }
 
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
+        main section {
+          margin-bottom: 3rem;
         }
 
-        a:hover {
-            text-decoration: underline;
+        main h2 {
+          font-weight: 600;
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          border-bottom: 2px solid #007acc;
+          display: inline-block;
+          padding-bottom: 0.3rem;
+          color: #007acc;
+        }
+
+        main ul {
+          list-style: disc;
+          padding-left: 1.3rem;
+          color: #444;
+        }
+
+        main ul li {
+          margin-bottom: 0.8rem;
+          line-height: 1.4;
+        }
+
+        main a {
+          color: #007acc;
+          text-decoration: none;
+        }
+
+        main a:hover {
+          text-decoration: underline;
         }
 
         footer {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 2rem;
+          text-align: center;
+          font-size: 0.9rem;
+          color: #777;
+          margin-top: 3rem;
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            .container {
-                padding: 1rem;
-            }
+        @media (max-width: 768px) {
+          body {
+            flex-direction: column;
+          }
 
-            h1 {
-                font-size: 1.5rem;
-            }
+          .sidebar {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 1.5rem;
+          }
 
-            h2 {
-                font-size: 1.2rem;
-            }
-
-            .subtitle {
-                font-size: 0.85rem;
-            }
-
-            .profile-photo img {
-                width: 120px;
-                height: 120px;
-            }
+          main {
+            margin-left: 0;
+            padding: 1.5rem 1rem;
+          }
         }
     </style>
 </head>
 
 <body>
-<div class="container">
-    <header>
-        <h1>Abdullah Umar Nasib</h1>
-        <p class="subtitle">🎓 Vice-Chancellor Gold Medalist | 🧪 Senior QA Engineer | 💬 Researcher | ✍️ Blogger</p>
-    </header>
+<aside class="sidebar">
+    <img src="profile.jpg" alt="Abdullah Umar Nasib" />
+    <h1>Abdullah Umar Nasib</h1>
+    <p class="subtitle">Vice-Chancellor Gold Medalist<br />Senior QA Engineer<br />Researcher & Blogger</p>
 
-    <!-- Profile Picture -->
-    <div class="profile-photo">
-        <img src="profile.jpg" alt="Abdullah Umar Nasib profile picture" />
-    </div>
+    <nav>
+        <ul>
+            <li><a href="#what-i-do">What I Do</a></li>
+            <li><a href="#tech-stack">Tech Stack</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#blog-posts">Blog Posts</a></li>
+            <li><a href="#profiles-links">Profiles & Links</a></li>
+            <li><a href="#projects">Pinned Projects</a></li>
+        </ul>
+    </nav>
+</aside>
 
-    <section>
+<main>
+    <section id="what-i-do">
         <h2>💼 What I Do</h2>
         <ul>
-            <li>🚀 Co-Lead a 22-member QA team driving test automation at scale</li>
-            <li>✅ 6+ years of experience in API Testing, Automation Frameworks, and CI/CD</li>
-            <li>🤖 Researcher with published work in NLP, Speech-to-Text, and ML-based classification</li>
-            <li>👨‍🏫 Trainer and recruiter for 4+ years, mentoring and onboarding QA engineers</li>
-            <li>✍️ Write about QA best practices and research insights on <a href="https://medium.com/@umarnasib13">Medium</a></li>
+            <li>Co-Lead a 22-member QA team driving test automation at scale</li>
+            <li>6+ years of experience in API Testing, Automation Frameworks, and CI/CD</li>
+            <li>Researcher with published work in NLP, Speech-to-Text, and ML-based classification</li>
+            <li>Trainer and recruiter for 4+ years, mentoring and onboarding QA engineers</li>
+            <li>Write about QA best practices and research insights on <a href="https://medium.com/@umarnasib13" target="_blank" rel="noopener noreferrer">Medium</a></li>
         </ul>
     </section>
 
-    <section>
+    <section id="tech-stack">
         <h2>🛠 Tech Stack</h2>
-        <p><strong>Languages:</strong> Python, JavaScript, Java</p>
-        <p><strong>Testing:</strong> Selenium, Playwright, Postman, REST Assured, Cypress</p>
-        <p><strong>CI/CD & DevOps:</strong> Jenkins, GitHub Actions, Docker</p>
-        <p><strong>ML/AI:</strong> PyTorch, Transformers, Scikit-learn</p>
-        <p><strong>Tools:</strong> Git, Jira, TestRail, VS Code</p>
+        <ul>
+            <li><strong>Languages:</strong> Python, JavaScript, Java</li>
+            <li><strong>Testing:</strong> Selenium, Playwright, Postman, REST Assured, Cypress</li>
+            <li><strong>CI/CD & DevOps:</strong> Jenkins, GitHub Actions, Docker</li>
+            <li><strong>ML/AI:</strong> PyTorch, Transformers, Scikit-learn</li>
+            <li><strong>Tools:</strong> Git, Jira, TestRail, VS Code</li>
+        </ul>
     </section>
 
-    <section>
+    <section id="publications">
         <h2>📚 Selected Publications</h2>
         <ul>
-            <li>🧠 References Validation in Scholarly Articles using RoBERTa</li>
-            <li>🎤 Real-Time Bengali Speech-to-Text Conversion</li>
-            <li>🤖 Sarcasm Detection, COVID X-Ray Classification, Cyber Foraging & More</li>
-            <li>📖 <a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ">View all on Google Scholar →</a></li>
+            <li>References Validation in Scholarly Articles using RoBERTa</li>
+            <li>Real-Time Bengali Speech-to-Text Conversion</li>
+            <li>Sarcasm Detection, COVID X-Ray Classification, Cyber Foraging & More</li>
+            <li><a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" target="_blank" rel="noopener noreferrer">View all on Google Scholar →</a></li>
         </ul>
     </section>
 
-    <section>
+    <section id="blog-posts">
         <h2>✍️ Latest Blog Posts</h2>
         <ul>
             <li>The Future of Software Testing: AI, Automation & Beyond</li>
@@ -179,18 +212,18 @@
         </ul>
     </section>
 
-    <section>
+    <section id="profiles-links">
         <h2>🔗 Profiles & Links</h2>
         <ul>
-            <li><a href="https://www.linkedin.com/in/umarnasib/">LinkedIn</a></li>
-            <li><a href="https://leetcode.com/u/UmarNasib/">LeetCode</a></li>
-            <li><a href="https://medium.com/@umarnasib13">Medium</a></li>
-            <li><a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ">Google Scholar</a></li>
-            <li><a href="https://www.researchgate.net/profile/Abdullah-Nasib">ResearchGate</a></li>
+            <li><a href="https://www.linkedin.com/in/umarnasib/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://leetcode.com/u/UmarNasib/" target="_blank" rel="noopener noreferrer">LeetCode</a></li>
+            <li><a href="https://medium.com/@umarnasib13" target="_blank" rel="noopener noreferrer">Medium</a></li>
+            <li><a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+            <li><a href="https://www.researchgate.net/profile/Abdullah-Nasib" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
         </ul>
     </section>
 
-    <section>
+    <section id="projects">
         <h2>📌 Pinned Projects</h2>
         <ul>
             <li><strong>Distance Calculator</strong> — Calculates distance between lat/lon points. (TypeScript)</li>
@@ -202,7 +235,7 @@
     <footer>
         <p>© 2025 Abdullah Umar Nasib</p>
     </footer>
-</div>
+</main>
 </body>
 
 </html>
