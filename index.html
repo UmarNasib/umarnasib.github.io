@@ -1,40 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdullah Umar Nasib</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --bg-color: #f9f9f9;
+          --text-color: #222;
+          --accent-color: #007acc;
+          --header-bg: #fff;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+          margin: 0;
+          font-family: 'Inter', sans-serif;
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          line-height: 1.6;
+          padding: 0 1rem;
+        }
+
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          background: var(--header-bg);
+          padding: 2rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+          text-align: center;
+          margin-bottom: 2rem;
+        }
+
+        h1 {
+          margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+          font-size: 0.95rem;
+          color: #555;
+        }
+
+        section {
+          margin-bottom: 2rem;
+        }
+
+        h2 {
+          margin-top: 0;
+          color: #333;
+          border-bottom: 1px solid #eee;
+          padding-bottom: 0.25rem;
+        }
+
+        ul {
+          padding-left: 1.2rem;
+        }
+
+        a {
+          color: var(--accent-color);
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        footer {
+          text-align: center;
+          font-size: 0.85rem;
+          color: #888;
+          margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 1rem;
+          }
+
+          h1 {
+            font-size: 1.5rem;
+          }
+
+          h2 {
+            font-size: 1.2rem;
+          }
+
+          .subtitle {
+            font-size: 0.85rem;
+          }
+        }
+    </style>
 </head>
+
 <body>
 <div class="container">
-    <h1>Abdullah Umar Nasib</h1>
-    <p><strong>Senior Software QA Engineer</strong></p>
-    <p>Email: <a href="mailto:umarnasib13@gmail.com">umarnasib13@gmail.com</a></p>
+    <header>
+        <h1>Abdullah Umar Nasib</h1>
+        <p class="subtitle">🎓 Vice-Chancellor Gold Medalist | 🧪 Senior QA Engineer | 💬 Researcher | ✍️ Blogger</p>
+    </header>
 
-    <hr>
+    <section>
+        <h2>💼 What I Do</h2>
+        <ul>
+            <li>🚀 Co-Lead a 22-member QA team driving test automation at scale</li>
+            <li>✅ 6+ years of experience in API Testing, Automation Frameworks, and CI/CD</li>
+            <li>🤖 Researcher with published work in NLP, Speech-to-Text, and ML-based classification</li>
+            <li>👨‍🏫 Trainer and recruiter for 4+ years, mentoring and onboarding QA engineers</li>
+            <li>✍️ Write about QA best practices and research insights on <a href="https://medium.com/@umarnasib13">Medium</a></li>
+        </ul>
+    </section>
 
-    <h2>Profiles</h2>
-    <ul>
-        <li><a href="https://www.linkedin.com/in/umarnasib/">LinkedIn</a></li>
-        <li><a href="https://leetcode.com/u/UmarNasib/">LeetCode</a></li>
-        <li><a href="https://medium.com/@umarnasib13">Medium</a></li>
-        <li><a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ">Google Scholar</a></li>
-        <li><a href="https://www.researchgate.net/profile/Abdullah-Nasib">ResearchGate</a></li>
-    </ul>
+    <section>
+        <h2>🛠 Tech Stack</h2>
+        <p><strong>Languages:</strong> Python, JavaScript, Java</p>
+        <p><strong>Testing:</strong> Selenium, Playwright, Postman, REST Assured, Cypress</p>
+        <p><strong>CI/CD & DevOps:</strong> Jenkins, GitHub Actions, Docker</p>
+        <p><strong>ML/AI:</strong> PyTorch, Transformers, Scikit-learn</p>
+        <p><strong>Tools:</strong> Git, Jira, TestRail, VS Code</p>
+    </section>
 
-    <h2>Research & Publications</h2>
-    <ul>
-        <li>References Validation in Scholarly Articles using RoBERTa, Thesis, May 2023</li>
-        <li>Understanding Sarcasm from Reddit Texts using Supervised Algorithms, Sept 2022</li>
-        <li>A Real-Time Speech to Text Conversion for Bengali Language, Feb 2018</li>
-        <!-- Add more -->
-    </ul>
+    <section>
+        <h2>📚 Selected Publications</h2>
+        <ul>
+            <li>🧠 References Validation in Scholarly Articles using RoBERTa</li>
+            <li>🎤 Real-Time Bengali Speech-to-Text Conversion</li>
+            <li>🤖 Sarcasm Detection, COVID X-Ray Classification, Cyber Foraging & More</li>
+            <li>📖 <a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ">View all on Google Scholar →</a></li>
+        </ul>
+    </section>
 
-    <h2>Experience</h2>
-    <p>Senior SQA Engineer, Team Lead (Therap BD Ltd.)<br>2018–2024</p>
+    <section>
+        <h2>✍️ Latest Blog Posts</h2>
+        <ul>
+            <li>The Future of Software Testing: AI, Automation & Beyond</li>
+            <li>Unlock Your Potential: A Step-by-Step Guide to Improving Manual Testing Skills</li>
+        </ul>
+    </section>
 
-    <h2>Teaching & Mentoring</h2>
-    <p>Trainer and Recruiter for new QA engineers (4+ years experience)</p>
+    <section>
+        <h2>🔗 Profiles & Links</h2>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/umarnasib/">LinkedIn</a></li>
+            <li><a href="https://leetcode.com/u/UmarNasib/">LeetCode</a></li>
+            <li><a href="https://medium.com/@umarnasib13">Medium</a></li>
+            <li><a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ">Google Scholar</a></li>
+            <li><a href="https://www.researchgate.net/profile/Abdullah-Nasib">ResearchGate</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>📌 Pinned Projects</h2>
+        <ul>
+            <li><strong>Distance Calculator</strong> — Calculates distance between lat/lon points. (TypeScript)</li>
+            <li><strong>Playwright Smart Reporter</strong> — Extends Playwright reporting with rich visuals. (Python)</li>
+            <li><strong>Word Counter App</strong> — Minimalistic word/char counter. (CSS)</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Abdullah Umar Nasib</p>
+    </footer>
 </div>
 </body>
+
 </html>
