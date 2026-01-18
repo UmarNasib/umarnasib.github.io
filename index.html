@@ -1,241 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdullah Umar Nasib</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* Reset */
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
+        /* --- DESIGN CONFIGURATION --- */
+        :root {
+            --sidebar-bg: #1e3a8a;
+            --sidebar-text: #ffffff;
+            --main-bg: #ffffff;
+            --text-color: #333333;
+            --link-color: #2563eb;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Roboto', sans-serif;
+            --sidebar-width: 400px;
         }
 
+        /* Reset & Base */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-          font-family: 'Inter', sans-serif;
-          background: #f5f7fa;
-          color: #333;
-          display: flex;
-          min-height: 100vh;
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background-color: var(--main-bg);
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.6;
         }
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        a:hover { color: var(--link-color); }
+        ul { list-style: none; }
 
-        /* Sidebar */
+        /* --- SIDEBAR --- */
         .sidebar {
-          background: #1e293b;
-          color: #fff;
-          width: 280px;
-          padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: fixed;
-          height: 100vh;
+            width: var(--sidebar-width);
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 1000;
         }
 
-        .sidebar img {
-          width: 120px;
-          height: 120px;
-          border-radius: 50%;
-          object-fit: cover;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-          margin-bottom: 1.5rem;
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.2);
+            margin-bottom: 1.5rem;
         }
 
         .sidebar h1 {
-          font-weight: 600;
-          font-size: 1.8rem;
-          margin-bottom: 0.25rem;
-          text-align: center;
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
         }
 
-        .sidebar p.subtitle {
-          font-size: 0.9rem;
-          color: #a1aebf;
-          text-align: center;
-          margin-bottom: 2rem;
-          line-height: 1.3;
+        .sidebar p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            line-height: 1.5;
         }
 
-        .sidebar nav ul {
-          list-style: none;
-          width: 100%;
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+            margin-bottom: 2rem;
         }
 
-        .sidebar nav ul li {
-          margin-bottom: 1rem;
+        .social-icons a {
+            color: rgba(255,255,255,10);
+            font-size: 2.0rem;
+            transition: 0.3s;
         }
 
-        .sidebar nav ul li a {
-          color: #a1aebf;
-          text-decoration: none;
-          font-weight: 500;
-          display: block;
-          padding: 0.4rem 0.5rem;
-          border-radius: 4px;
-          transition: background 0.3s ease;
+        .social-icons a:hover {
+            color: #fff;
+            transform: translateY(-5px);
         }
 
-        .sidebar nav ul li a:hover {
-          background: #334155;
-          color: #fff;
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: auto;
         }
 
-        /* Main content */
-        main {
-          margin-left: 280px;
-          padding: 3rem 2rem;
-          flex: 1;
-          background: #fff;
-        }
-
-        main section {
-          margin-bottom: 3rem;
-        }
-
-        main h2 {
-          font-weight: 600;
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-          border-bottom: 2px solid #007acc;
-          display: inline-block;
-          padding-bottom: 0.3rem;
-          color: #007acc;
-        }
-
-        main ul {
-          list-style: disc;
-          padding-left: 1.3rem;
-          color: #444;
-        }
-
-        main ul li {
-          margin-bottom: 0.8rem;
-          line-height: 1.4;
-        }
-
-        main a {
-          color: #007acc;
-          text-decoration: none;
-        }
-
-        main a:hover {
-          text-decoration: underline;
-        }
-
-        footer {
-          text-align: center;
-          font-size: 0.9rem;
-          color: #777;
-          margin-top: 3rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-          body {
-            flex-direction: column;
-          }
-
-          .sidebar {
-            position: relative;
+        /* --- MAIN CONTENT AREA --- */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 3rem 3%;
+            max-width: 100%;
             width: 100%;
-            height: auto;
-            padding: 1.5rem;
-          }
+        }
 
-          main {
-            margin-left: 0;
-            padding: 1.5rem 1rem;
-          }
+        /* Top Navigation */
+        .top-nav {
+            margin-bottom: 4rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        .top-nav a {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #555;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .top-nav a.active { color: var(--link-color); border-bottom: 2px solid var(--link-color); }
+
+        /* Page Sections */
+        .page-section { display: none; animation: fadeIn 0.4s ease; }
+        .page-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .publication-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+            margin: 3rem 0 1.5rem 0;
+        }
+
+        .publication-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .publication-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        h2.section-title {
+            font-size: 1.8rem;
+            color: #111;
+            margin: 3rem 0 1.5rem 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        h2.section-title:first-child { margin-top: 0; }
+
+        /* --- RESEARCH STYLE --- */
+        .publication-item { margin-bottom: 1.5rem; }
+        .publication-item .title { font-weight: 700; color: #222; display: block; }
+        .publication-item .meta { color: #555; font-size: 0.95rem; }
+        .publication-item a.doi { color: var(--link-color); font-size: 0.85rem; margin-left: 5px; }
+
+        /* --- POSTS STYLE --- */
+        .posts-year { font-size: 1.5rem; font-weight: 700; color: #ccc; margin: 2rem 0 1rem 0; }
+        .post-item { display: flex; align-items: baseline; margin-bottom: 0.8rem; }
+        .post-date { width: 100px; font-size: 0.9rem; color: #888; flex-shrink: 0; }
+        .post-link { font-weight: 600; color: #333; }
+        .post-link:hover { text-decoration: underline; color: var(--link-color); }
+
+        /* --- HOME & ABOUT STYLE --- */
+        .intro-text { font-size: 1.1rem; color: #444; margin-bottom: 2rem; }
+        .btn-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--link-color);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 2rem 1rem;
+            }
+            .main-content { margin-left: 0; padding: 2rem 1.5rem; }
+            .top-nav { overflow-x: auto; white-space: nowrap; }
         }
     </style>
 </head>
-
 <body>
-<aside class="sidebar">
-    <img src="profile.jpg" alt="Abdullah Umar Nasib" />
-    <h1>Abdullah Umar Nasib</h1>
-    <p class="subtitle">Vice-Chancellor Gold Medalist<br />Senior QA Engineer<br />Researcher & Blogger</p>
 
-    <nav>
-        <ul>
-            <li><a href="#what-i-do">What I Do</a></li>
-            <li><a href="#tech-stack">Tech Stack</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#blog-posts">Blog Posts</a></li>
-            <li><a href="#profiles-links">Profiles & Links</a></li>
-            <li><a href="#projects">Pinned Projects</a></li>
-        </ul>
-    </nav>
+<aside class="sidebar">
+    <br> <br> <br> <br>
+    <img src="profile.jpg" alt="Abdullah Umar Nasib" class="profile-img">
+    <h1>Abdullah Umar Nasib</h1> <br>
+    <p>
+        Software Quality Assurance Engineer, Researcher & Vice Chancellor Medalist <br><br><br>
+        <br> Passionately breaking code to make it stronger.
+    </p>
+
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/umarnasib/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" target="_blank"><i
+                class="fas fa-graduation-cap"></i></a>
+        <a href="https://www.researchgate.net/profile/Abdullah-Nasib" target="_blank"><i
+                class="fab fa-researchgate"></i></a>
+        <a href="https://medium.com/@umarnasib13" target="_blank"><i class="fab fa-medium-m"></i></a>
+        <a href="https://github.com/UmarNasib" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+
+    <div class="copyright">
+        &copy; 2026 Abdullah Umar Nasib. All rights reserved.
+    </div>
 </aside>
 
-<main>
-    <section id="what-i-do">
-        <h2>💼 What I Do</h2>
-        <ul>
-            <li>Co-Lead a 22-member QA team driving test automation at scale</li>
-            <li>6+ years of experience in API Testing, Automation Frameworks, and CI/CD</li>
-            <li>Researcher with published work in NLP, Speech-to-Text, and ML-based classification</li>
-            <li>Trainer and recruiter for 4+ years, mentoring and onboarding QA engineers</li>
-            <li>Write about QA best practices and research insights on <a href="https://medium.com/@umarnasib13" target="_blank" rel="noopener noreferrer">Medium</a></li>
-        </ul>
-    </section>
+<main class="main-content">
 
-    <section id="tech-stack">
-        <h2>🛠 Tech Stack</h2>
+    <nav class="top-nav">
         <ul>
-            <li><strong>Languages:</strong> Python, JavaScript, Java</li>
+            <li><a onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
+            <li><a onclick="showSection('research')" id="nav-research">Research</a></li>
+            <li><a onclick="showSection('posts')" id="nav-posts">Posts</a></li>
+            <li><a onclick="showSection('projects')" id="nav-projects">Projects</a></li>
+            <li><a onclick="showSection('about')" id="nav-about">About</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="page-section active">
+        <h2 class="section-title">Hi there, I'm Abdullah</h2>
+        <p class="intro-text">
+            I am a Senior QA Engineer and Researcher with over 6 years of experience in API Testing, Automation
+            Frameworks, and CI/CD.
+            I currently co-lead a 22-member QA team driving test automation at scale.
+        </p>
+
+        <h2 class="section-title" style="margin-top: 3rem; font-size: 1.2rem;">LATEST POST</h2>
+        <div class="post-item">
+            <span class="post-date">May 2025</span>
+            <a href="https://medium.com/@umarnasib13" target="_blank" class="post-link">The Future of Software Testing:
+                AI, Automation & Beyond</a>
+        </div>
+        <p style="color:#666; margin-top:0.5rem; font-size:0.95rem;">
+            As we move away from traditional manual testing, how do AI-driven tools fit into the modern SDLC?
+        </p>
+        <a href="https://medium.com/@umarnasib13" target="_blank" class="btn-link">Read more &rarr;</a>
+    </div>
+
+    <div id="research" class="page-section">
+        <h2 class="section-title">My Research & Publications</h2>
+        <p style="margin-bottom:2rem; color:#666;">
+            My research focuses on Natural Language Processing (NLP) and Machine Learning applications in Software
+            Engineering and Software Quality Assurance. All the publications are available at <a
+                href="https://scholar.google.com/citations?hl=en&user=Jv_yP-sAAAAJ&view_op=list_works&sortby=pubdate">
+            Google Scholar </a> and <a href="https://www.researchgate.net/profile/Abdullah-Nasib"> Research Gate </a>
+            profile. You can contact me in need of any details. Some of the selected publications are as follows:
+        </p>
+
+        <div class="publication-item">
+            <div class="publication-year">2025</div>
+            <span class="title">IEEE International Conference on Sustainable Technology and Engineering (i-COSTE) </span>
+            <div class="meta">
+                <b>Nasib, A.U.</b>, Tahsin, A., Alam, M.G.R. (2025) <b>An Approach to Validate References in Scholarly
+                Articles
+                using RoBERTa.</b> In: 11th IEEE International Conference on Smart Technologies and Engineering
+                (i-COSTE),
+                Presented
+                on December 4th, 2025. <br> <br>
+
+                <strong>Abstract:</strong> In this age of rapid technological advancement, evaluating references or
+                hallucinated references and validating them are some of the primary processes to justify the
+                authenticity of a research work in the academic research. The core purpose of referencing is to ensure
+                ethical writing and to make the search easier in a particular area for the reader when it is accurate.
+                The conventional method for verifying their validity is to check them manually one by one, which is
+                above argument, equivalent to another research work, and sometimes so exhausting that the reader loses
+                interest in reading the original paper. Our research aims to present a semi-automatic digital system
+                that allows researchers to substantiate the references used in their research writing without manual
+                intervention. This proposed model utilizes a sentence transformer called RoBERTa to produce embeddings.
+                In order to find semantic and contextual similarities, we use the model to clean and pre-process an
+                entire research paper before cross-referencing it with a reference query. The result shows mostly
+                similar contexts based on the similarity check. Using K similar search function, we have compared the
+                embedding of query and user input articles. With an F1-score of 0.777, our model outperformed the output
+                of both the present BERT and SBERT models in accuracy, demonstrating that the model could potentially be
+                applied in real life with simple query of text from research publications.
+
+                <a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" class="doi" target="_blank">[Google
+                    Scholar]</a>
+            </div>
+        </div>
+
+        <div class="publication-year">2022</div>
+        <div class="publication-item">
+            <span class="title">Lecture Notes on Data Engineering and Communications Technologies</span>
+            <div class="meta">
+                Tabassum, P., <b>Nasib, A.U.</b>, Alam, M.G.R. (2022). <b>Multi-criteria Decision Theory-Based Cyber
+                Foraging Peer Selection for Content Streaming.</b> In: Saraswat, M., Sharma, H., Balachandran, K., Kim,
+                J.H., Bansal, J.C. (eds) Congress on Intelligent Systems. Lecture Notes on Data Engineering and
+                Communications Technologies, vol 114. Springer, Singapore. <a
+                    href="https://link.springer.com/chapter/10.1007/978-981-16-9416-5_40" class="doi" target="_blank">doi</a>
+                <br><br>
+
+                <strong>Abstract:</strong> COVID-19 has made it necessary for educational institutes to make their
+                materials available online. Having access to these vast amounts of knowledge and learning materials can
+                benefit students outside of these institutes greatly. With that in mind, this paper proposes a cyber
+                foraging system. The proposed system is a peer-to-peer streaming system for educational institute
+                content streaming that selects the best peers based on eight decision criteria. Judgments from experts
+                are used as data to assign relative weights to these criteria using the Fuzzy Analytical Hierarchy
+                Process method. Finally, the criteria are ranked based on the assigned relative weights to find out
+                their importance in the peer selection decision making process.
+                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&sortby=pubdate&citation_for_view=Jv_yP-sAAAAJ:9yKSN-GCB0IC"
+                   class="doi" target="_blank">[Google Scholar]</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">Region 10 Humanitarian Technology Conference (R10-HTC)</span>
+            <div class="meta">
+                Hasnat, F., Hasan, M.M., <b>Nasib, A.U.</b>, Adnan, A., Khanom, N., Islam, SM.M., Mehedi, M.H.K., Iqbal,
+                S., Rasel, A.A. (2022). <b>Understanding Sarcasm from Reddit texts using Supervised Algorithms.</b> In:
+                2022 IEEE 10th Region 10 Humanitarian Technology Conference (R10-HTC), Hyderabad, India, 2022, pp. 1-6,
+                <a href="https://ieeexplore.ieee.org/document/9929882" class="doi" target="_blank">doi</a>
+                <br><br>
+
+                <strong>Abstract:</strong> The use of satirical or ironic language for conveying a message is referred
+                to as Sarcasm. Social networks such as Reddit, Twitter, etc. usually uses Sarcasm. Reddit which is an
+                American website contains social aggregations of news, ratings of the content and discussions. These
+                resources, which include links, text articles, photographs, and videos, are published to the platform by
+                registered users and can be voted up or down. Posts that cover topics related to books, cooking, pets,
+                news, politics, movies, religions, science, sports, fitness, video games, music, and image-sharing are
+                organized as “communities” or “subreddits”. The submissions receiving enough outvotes appear on the
+                front page of the site and towards the top of the subreddit. This paper is about classifying a Reddit
+                comment as sarcastic or non-sarcastic with the help of machine learning techniques. The dataset used in
+                this study named as ‘Sarcasm on Reddit’ for classification according to genre-based and have followed
+                some basic steps using supervised machine learning and deep learning algorithms for the classification
+                of texts including pre-processing, feature extraction and modeling. In this approach, we have achieved
+                71%, 76% and 70% accuracy for LSTM, CNN, and Logistic Regression algorithms respectively.
+                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:UeHWp8X0CEIC"
+                   class="doi" target="_blank">[Google Scholar]</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">Region 10 Humanitarian Technology Conference (R10-HTC)</span>
+            <div class="meta">
+                Khan, S., Islam, SM.M., <b>Nasib, A.U.</b>, Hasnat, F., Hasan, Mehedi, M.H.K., Iqbal, S., Rasel, A.A.
+                (2022). <b>COVID-19 Classification from X-Ray Images using 2D CNN.</b> In: 2022 IEEE 10th Region 10
+                Humanitarian Technology Conference (R10-HTC), Hyderabad, India, 2022, pp. 1-6, <a
+                    href="https://ieeexplore.ieee.org/abstract/document/9929517" class="doi" target="_blank">doi</a>
+                <br><br>
+
+                <strong>Abstract:</strong> The coronavirus (COVID-19) detection has been a crucial task for researchers,
+                scientists, health experts all across the world and everyone is trying together to find a solution to
+                it. The X-rays images of lungs have become one of the most prevalent and effective procedures used by
+                researchers to monitor COVID-19. Unfortunately, inspecting each case involves multiple radiology experts
+                and time, which is one of the critical tasks in such an outbreak. In this paper, a deep learning
+                approach, 2D convolutional neural networks (CNN) has been used to classify healthy and COVID-19 chest
+                X-ray images. “Curated Dataset for COVID-19 Posterior-Anterior Chest Radiography Images (X-Rays)”
+                dataset has been used in this study. The major indicator of this study is the accuracy of the proposed
+                model. The classification model, 2D CNN has achieved accuracy and f1-score of 0.96 and 0.95
+                respectively.
+                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:qjMakFHDy7sC"
+                   class="doi" target="_blank">[Google Scholar]</a>
+            </div>
+        </div>
+
+        <div class="publication-year">2018</div>
+        <div class="publication-item">
+            <span class="title">International Conference on Computer, Communication, Chemical, Material
+                and Electronic Engineering (IC4ME2)</span>
+            <div class="meta">
+                <b>Nasib, A.U.</b>, Kabir, H., Uddin, J. (2022). <b>A Real Time Speech to Text Conversion Technique for
+                Bengali Language.</b> In: 2018 International Conference on Computer, Communication, Chemical, Material
+                and Electronic Engineering (IC4ME2), Rajshahi, Bangladesh, 2018, pp. 1-4, <a
+                    href="https://ieeexplore.ieee.org/abstract/document/8465680" class="doi"
+                    target="10.1109/IC4ME2.2018.8465680">doi</a>
+                <br><br>
+
+                <strong>Abstract:</strong> This paper presents a model to convert natural Bengali language to text. The
+                proposed model requires the usage of the open sourced framework Sphinx 4 which is written in Java and
+                provides the required procedural coding tools to develop an acoustic model for a custom language like
+                Bengali. Our main objective was to ensure that the system was adequately trained on a word by word basis
+                from various speakers so that it could recognize new speakers fluently. We used a free digital audio
+                workstation (DAW) called Audacity to manipulate the collected recording data via continuous frequency
+                profiling techniques to reduce the Signal-to-Noise-Ratio (SNR), vocal leveling, normalization and
+                syllable splitting as well as merging which ensure an error free 1:1-word mapping of each utterance with
+                its mirror transcription file text. To evaluate the performance of proposed model, we utilize an audio
+                dataset of recorded speech data from 10 individual speakers consisting of both males and females using
+                custom transcript files that we wrote. Experimental results demonstrate that the proposed model exhibits
+                average 71.7% accuracy for our tested dataset.
+                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:qjMakFHDy7sC"
+                   class="doi" target="_blank">[Google Scholar]</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="posts" class="page-section">
+        <h2 class="section-title">Posts</h2>
+
+        <div class="publication-year">2025</div>
+        <div class="post-item">
+            <span class="post-date">April 15</span>
+            <a href="https://medium.com/@umarnasib13/no-means-new-opportunity-how-to-transform-rejection-into-redirection-0fb8635a86a5"
+               target="_blank"
+               class="post-link">“NO” Means New Opportunity: How to Transform Rejection into Redirection</a>
+        </div>
+        <div class="post-item">
+            <span class="post-date">March 29</span>
+            <a href="https://medium.com/@umarnasib13/the-future-of-software-testing-ai-automation-beyond-9ba3ed804e5e"
+               target="_blank" class="post-link">The Future of Software Testing: AI, Automation & Beyond</a>
+        </div>
+
+        <div class="post-item">
+            <span class="post-date">March 2</span>
+            <a href="https://medium.com/@umarnasib13/unlock-your-potential-a-step-by-step-guide-to-improving-manual-testing-skills-5b5c5515501e"
+               class="post-link">Unlock Your Potential: A Step-by-Step Guide to Improving Manual Testing Skills</a>
+        </div>
+
+        <div class="post-item">
+            <span class="post-date">February 11</span>
+            <a href="https://medium.com/@umarnasib13/qa-vs-testing-understanding-the-key-differences-f7e554aad7af"
+               class="post-link">QA vs Testing: Understanding the Key Differences</a>
+        </div>
+
+        <div class="post-item">
+            <span class="post-date">February 5</span>
+            <a href="https://medium.com/@umarnasib13/github-codespaces-the-future-of-cloud-based-development-29a9dc04006d"
+               class="post-link">GitHub Codespaces: The Future of Cloud-Based Development</a>
+        </div>
+
+        <div class="post-item">
+            <span class="post-date">February 3</span>
+            <a href="https://medium.com/@umarnasib13/10-essential-career-principles-for-software-quality-assurance-engineers-2ef43837c891"
+               class="post-link">10 Essential Career Principles for Software Quality Assurance Engineers</a>
+        </div>
+
+        <div class="post-item">
+            <span class="post-date">February 2</span>
+            <a href="https://medium.com/@umarnasib13/getting-started-with-playwright-a-beginners-guide-0977e051a36c"
+               class="post-link">Getting Started with Playwright: A Beginner’s Guide</a>
+        </div>
+
+        <div class="post-item">
+            <span class="post-date">January 30</span>
+            <a href="https://medium.com/@umarnasib13/the-importance-of-test-automation-alongside-manual-testing-6a91eb837d25"
+               class="post-link">The Importance of Test Automation Alongside Manual Testing</a>
+        </div>
+    </div>
+
+    <div id="projects" class="page-section">
+        <h2 class="section-title">Pinned Projects</h2>
+
+        <div class="publication-item">
+            <span class="title">Distance Calculator</span>
+            <div class="meta">
+                TypeScript • Calculates precise distance between lat/lon points.
+                <a href="#" class="doi">[View Code]</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">Playwright Smart Reporter</span>
+            <div class="meta">
+                Python • Extends Playwright reporting with rich visuals and analytics.
+                <a href="#" class="doi">[View Code]</a>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">Word Counter App</span>
+            <div class="meta">
+                CSS/JS • Minimalistic word and character counter.
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="page-section">
+        <h2 class="section-title">About Me</h2>
+        <div class="intro-text">
+            <p style="margin-bottom:1rem;">
+                I am a Senior QA Engineer, Trainer, and Researcher. My work bridges the gap between academic
+                research in
+                NLP and practical software quality assurance.
+            </p>
+            <p>
+                I currently co-lead a 22-member team, mentoring engineers and implementing CI/CD pipelines using
+                Jenkins, GitHub Actions, and Docker.
+            </p>
+        </div>
+
+        <h3 style="font-size:1.1rem; margin-top:2rem; margin-bottom:1rem;">Technical Stack</h3>
+        <ul style="list-style: disc; padding-left: 1.5rem; color:#555;">
+            <li><strong>Languages:</strong> Python, JavaScript, Java, TypeScript</li>
             <li><strong>Testing:</strong> Selenium, Playwright, Postman, REST Assured, Cypress</li>
-            <li><strong>CI/CD & DevOps:</strong> Jenkins, GitHub Actions, Docker</li>
-            <li><strong>ML/AI:</strong> PyTorch, Transformers, Scikit-learn</li>
-            <li><strong>Tools:</strong> Git, Jira, TestRail, VS Code</li>
+            <li><strong>AI/ML:</strong> PyTorch, Transformers, Scikit-learn</li>
         </ul>
-    </section>
+    </div>
 
-    <section id="publications">
-        <h2>📚 Selected Publications</h2>
-        <ul>
-            <li>References Validation in Scholarly Articles using RoBERTa</li>
-            <li>Real-Time Bengali Speech-to-Text Conversion</li>
-            <li>Sarcasm Detection, COVID X-Ray Classification, Cyber Foraging & More</li>
-            <li><a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" target="_blank" rel="noopener noreferrer">View all on Google Scholar →</a></li>
-        </ul>
-    </section>
-
-    <section id="blog-posts">
-        <h2>✍️ Latest Blog Posts</h2>
-        <ul>
-            <li>The Future of Software Testing: AI, Automation & Beyond</li>
-            <li>Unlock Your Potential: A Step-by-Step Guide to Improving Manual Testing Skills</li>
-        </ul>
-    </section>
-
-    <section id="profiles-links">
-        <h2>🔗 Profiles & Links</h2>
-        <ul>
-            <li><a href="https://www.linkedin.com/in/umarnasib/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li><a href="https://leetcode.com/u/UmarNasib/" target="_blank" rel="noopener noreferrer">LeetCode</a></li>
-            <li><a href="https://medium.com/@umarnasib13" target="_blank" rel="noopener noreferrer">Medium</a></li>
-            <li><a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
-            <li><a href="https://www.researchgate.net/profile/Abdullah-Nasib" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>📌 Pinned Projects</h2>
-        <ul>
-            <li><strong>Distance Calculator</strong> — Calculates distance between lat/lon points. (TypeScript)</li>
-            <li><strong>Playwright Smart Reporter</strong> — Extends Playwright reporting with rich visuals. (Python)</li>
-            <li><strong>Word Counter App</strong> — Minimalistic word/char counter. (CSS)</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>© 2025 Abdullah Umar Nasib</p>
-    </footer>
 </main>
-</body>
 
+<script>
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.page-section').forEach(sec => {
+            sec.classList.remove('active');
+        });
+        // Show selected section
+        document.getElementById(sectionId).classList.add('active');
+
+        // Update Nav Links
+        document.querySelectorAll('.top-nav a').forEach(link => {
+            link.classList.remove('active');
+        });
+        document.getElementById('nav-' + sectionId).classList.add('active');
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
 </html>
