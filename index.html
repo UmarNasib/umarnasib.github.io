@@ -147,7 +147,7 @@
             color: #1e3a8a;
             border-bottom: 2px solid #eee;
             padding-bottom: 0.5rem;
-            margin: 3rem 0 1.5rem 0;
+            margin: 1.0rem 0 1.0rem 0;
         }
 
         .publication-item {
@@ -195,6 +195,23 @@
             color: var(--link-color);
         }
 
+        /* READ MORE / LESS STYLES */
+        .more-content {
+            display: none;
+        }
+
+        .read-more-btn {
+            color: var(--link-color);
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-left: 3px;
+        }
+
+        .read-more-btn:hover {
+            text-decoration: underline;
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             body { flex-direction: column; }
@@ -214,7 +231,8 @@
 <aside class="sidebar">
     <br> <br> <br> <br>
     <img src="profile.jpg" alt="Abdullah Umar Nasib" class="profile-img">
-    <h1>Abdullah Umar Nasib</h1> <br>
+    <h1>Abdullah Umar Nasib</h1>
+    <p style="color:#F2F2F2; font-family:'Courier New'">umarnasib13@gmail[dot]com</p> <br>
     <p>
         Software Quality Assurance Engineer, Researcher & Vice Chancellor Medalist <br><br><br>
         <br> Passionately breaking code to make it stronger.
@@ -241,14 +259,14 @@
         <ul>
             <li><a onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
             <li><a onclick="showSection('research')" id="nav-research">Research</a></li>
-            <li><a onclick="showSection('posts')" id="nav-posts">Posts</a></li>
             <li><a onclick="showSection('works')" id="nav-works">Works</a></li>
+            <li><a onclick="showSection('posts')" id="nav-posts">Posts</a></li>
             <li><a onclick="showSection('Achievements')" id="nav-achievements">Achievements</a></li>
             <li><a onclick="showSection('about')" id="nav-about">About</a></li>
         </ul>
     </nav>
 
-    <div id="home" class="page-section active">
+    <div id="!home" class="page-section active">
         <h2 class="section-title">Hello, I'm Abdullah!</h2>
         <p class="intro-text">
             I am a Senior QA Engineer and Researcher with over 7 years of experience in API Testing, Automation
@@ -272,8 +290,10 @@
         <p style="margin-bottom:2rem; color:#666;">
             My research focuses on Natural Language Processing (NLP) and Machine Learning applications in Software
             Engineering and Software Quality Assurance. All the publications are available at <a
-                href="https://scholar.google.com/citations?hl=en&user=Jv_yP-sAAAAJ&view_op=list_works&sortby=pubdate">
-            Google Scholar </a> and <a href="https://www.researchgate.net/profile/Abdullah-Nasib"> Research Gate </a>
+                href="https://scholar.google.com/citations?hl=en&user=Jv_yP-sAAAAJ&view_op=list_works&sortby=pubdate"
+                target="_blank" style="color: #2563eb;">Google Scholar</a>
+            and <a href="https://www.researchgate.net/profile/Abdullah-Nasib" target="_blank"
+                   style="color: #2563eb;"> Research Gate </a>
             profile. You can contact me in need of any details. Some of the selected publications are as follows:
         </p>
 
@@ -282,30 +302,19 @@
             <span class="title">IEEE International Conference on Sustainable Technology and Engineering (i-COSTE) </span>
             <div class="meta">
                 <b>Nasib, A.U.</b>, Tahsin, A., Alam, M.G.R. (2025) <b>An Approach to Validate References in Scholarly
-                Articles
-                using RoBERTa.</b> In: 11th IEEE International Conference on Smart Technologies and Engineering
-                (i-COSTE),
-                Presented
-                on December 4th, 2025. <br> <br>
+                Articles using RoBERTa.</b> In: 11th IEEE International Conference on Smart Technologies and Engineering
+                (i-COSTE), Presented on December 4th, 2025. <a
+                    href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" class="doi" target="_blank">[Google
+                Scholar]</a> <br> <br>
 
                 <strong>Abstract:</strong> In this age of rapid technological advancement, evaluating references or
                 hallucinated references and validating them are some of the primary processes to justify the
-                authenticity of a research work in the academic research. The core purpose of referencing is to ensure
-                ethical writing and to make the search easier in a particular area for the reader when it is accurate.
-                The conventional method for verifying their validity is to check them manually one by one, which is
-                above argument, equivalent to another research work, and sometimes so exhausting that the reader loses
-                interest in reading the original paper. Our research aims to present a semi-automatic digital system
-                that allows researchers to substantiate the references used in their research writing without manual
-                intervention. This proposed model utilizes a sentence transformer called RoBERTa to produce embeddings.
-                In order to find semantic and contextual similarities, we use the model to clean and pre-process an
-                entire research paper before cross-referencing it with a reference query. The result shows mostly
-                similar contexts based on the similarity check. Using K similar search function, we have compared the
-                embedding of query and user input articles. With an F1-score of 0.777, our model outperformed the output
-                of both the present BERT and SBERT models in accuracy, demonstrating that the model could potentially be
-                applied in real life with simple query of text from research publications.
-
-                <a href="https://scholar.google.com/citations?user=Jv_yP-sAAAAJ" class="doi" target="_blank">[Google
-                    Scholar]</a>
+                authenticity of a research work. The core purpose of referencing is to ensure ethical writing and to
+                make the search easier in a particular area for the reader when it is accurate.
+                <span class="more-content">
+                    The conventional method for verifying their validity is to check them manually one by one, which is above argument, equivalent to another research work, and sometimes so exhausting that the reader loses interest. Our research aims to present a semi-automatic digital system that allows researchers to substantiate the references used in their research writing without manual intervention. This proposed model utilizes a sentence transformer called RoBERTa to produce embeddings. In order to find semantic and contextual similarities, we use the model to clean and pre-process an entire research paper before cross-referencing it with a reference query. The result shows mostly similar contexts based on the similarity check. With an F1-score of 0.777, our model outperformed the output of both the present BERT and SBERT models.
+                </span>
+                <span onclick="toggleAbstract(this)" class="read-more-btn">Read More</span>
             </div>
         </div>
 
@@ -317,19 +326,18 @@
                 Foraging Peer Selection for Content Streaming.</b> In: Saraswat, M., Sharma, H., Balachandran, K., Kim,
                 J.H., Bansal, J.C. (eds) Congress on Intelligent Systems. Lecture Notes on Data Engineering and
                 Communications Technologies, vol 114. Springer, Singapore. <a
-                    href="https://link.springer.com/chapter/10.1007/978-981-16-9416-5_40" class="doi" target="_blank">doi</a>
+                    href="https://link.springer.com/chapter/10.1007/978-981-16-9416-5_40" class="doi" target="_blank">[DOI]</a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&sortby=pubdate&citation_for_view=Jv_yP-sAAAAJ:9yKSN-GCB0IC"
+                   class="doi" target="_blank">[Google Scholar]</a>
                 <br><br>
 
                 <strong>Abstract:</strong> COVID-19 has made it necessary for educational institutes to make their
                 materials available online. Having access to these vast amounts of knowledge and learning materials can
-                benefit students outside of these institutes greatly. With that in mind, this paper proposes a cyber
-                foraging system. The proposed system is a peer-to-peer streaming system for educational institute
-                content streaming that selects the best peers based on eight decision criteria. Judgments from experts
-                are used as data to assign relative weights to these criteria using the Fuzzy Analytical Hierarchy
-                Process method. Finally, the criteria are ranked based on the assigned relative weights to find out
-                their importance in the peer selection decision making process.
-                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&sortby=pubdate&citation_for_view=Jv_yP-sAAAAJ:9yKSN-GCB0IC"
-                   class="doi" target="_blank">[Google Scholar]</a>
+                benefit students outside of these institutes greatly.
+                <span class="more-content">
+                    With that in mind, this paper proposes a cyber foraging system. The proposed system is a peer-to-peer streaming system for educational institute content streaming that selects the best peers based on eight decision criteria. Judgments from experts are used as data to assign relative weights to these criteria using the Fuzzy Analytical Hierarchy Process method. Finally, the criteria are ranked based on the assigned relative weights to find out their importance in the peer selection decision making process.
+                </span>
+                <span onclick="toggleAbstract(this)" class="read-more-btn">Read More</span>
             </div>
         </div>
 
@@ -339,24 +347,18 @@
                 Hasnat, F., Hasan, M.M., <b>Nasib, A.U.</b>, Adnan, A., Khanom, N., Islam, SM.M., Mehedi, M.H.K., Iqbal,
                 S., Rasel, A.A. (2022). <b>Understanding Sarcasm from Reddit texts using Supervised Algorithms.</b> In:
                 2022 IEEE 10th Region 10 Humanitarian Technology Conference (R10-HTC), Hyderabad, India, 2022, pp. 1-6,
-                <a href="https://ieeexplore.ieee.org/document/9929882" class="doi" target="_blank">doi</a>
+                <a href="https://ieeexplore.ieee.org/document/9929882" class="doi" target="_blank">[DOI]</a> <a
+                    href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:UeHWp8X0CEIC"
+                    class="doi" target="_blank">[Google Scholar]</a>
                 <br><br>
 
                 <strong>Abstract:</strong> The use of satirical or ironic language for conveying a message is referred
                 to as Sarcasm. Social networks such as Reddit, Twitter, etc. usually uses Sarcasm. Reddit which is an
-                American website contains social aggregations of news, ratings of the content and discussions. These
-                resources, which include links, text articles, photographs, and videos, are published to the platform by
-                registered users and can be voted up or down. Posts that cover topics related to books, cooking, pets,
-                news, politics, movies, religions, science, sports, fitness, video games, music, and image-sharing are
-                organized as “communities” or “subreddits”. The submissions receiving enough outvotes appear on the
-                front page of the site and towards the top of the subreddit. This paper is about classifying a Reddit
-                comment as sarcastic or non-sarcastic with the help of machine learning techniques. The dataset used in
-                this study named as ‘Sarcasm on Reddit’ for classification according to genre-based and have followed
-                some basic steps using supervised machine learning and deep learning algorithms for the classification
-                of texts including pre-processing, feature extraction and modeling. In this approach, we have achieved
-                71%, 76% and 70% accuracy for LSTM, CNN, and Logistic Regression algorithms respectively.
-                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:UeHWp8X0CEIC"
-                   class="doi" target="_blank">[Google Scholar]</a>
+                American website contains social aggregations of news, ratings of the content and discussions.
+                <span class="more-content">
+                    These resources, which include links, text articles, photographs, and videos, are published to the platform by registered users and can be voted up or down. Posts that cover topics related to books, cooking, pets, news, politics, movies, religions, science, sports, fitness, video games, music, and image-sharing are organized as “communities” or “subreddits”. The submissions receiving enough outvotes appear on the front page of the site and towards the top of the subreddit. This paper is about classifying a Reddit comment as sarcastic or non-sarcastic with the help of machine learning techniques. In this approach, we have achieved 71%, 76% and 70% accuracy for LSTM, CNN, and Logistic Regression algorithms respectively.
+                </span>
+                <span onclick="toggleAbstract(this)" class="read-more-btn">Read More</span>
             </div>
         </div>
 
@@ -366,21 +368,20 @@
                 Khan, S., Islam, SM.M., <b>Nasib, A.U.</b>, Hasnat, F., Hasan, Mehedi, M.H.K., Iqbal, S., Rasel, A.A.
                 (2022). <b>COVID-19 Classification from X-Ray Images using 2D CNN.</b> In: 2022 IEEE 10th Region 10
                 Humanitarian Technology Conference (R10-HTC), Hyderabad, India, 2022, pp. 1-6, <a
-                    href="https://ieeexplore.ieee.org/abstract/document/9929517" class="doi" target="_blank">doi</a>
+                    href="https://ieeexplore.ieee.org/abstract/document/9929517" class="doi" target="_blank">[DOI]</a>
+                <a
+                        href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:qjMakFHDy7sC"
+                        class="doi" target="_blank">[Google Scholar]</a>
                 <br><br>
 
                 <strong>Abstract:</strong> The coronavirus (COVID-19) detection has been a crucial task for researchers,
                 scientists, health experts all across the world and everyone is trying together to find a solution to
                 it. The X-rays images of lungs have become one of the most prevalent and effective procedures used by
-                researchers to monitor COVID-19. Unfortunately, inspecting each case involves multiple radiology experts
-                and time, which is one of the critical tasks in such an outbreak. In this paper, a deep learning
-                approach, 2D convolutional neural networks (CNN) has been used to classify healthy and COVID-19 chest
-                X-ray images. “Curated Dataset for COVID-19 Posterior-Anterior Chest Radiography Images (X-Rays)”
-                dataset has been used in this study. The major indicator of this study is the accuracy of the proposed
-                model. The classification model, 2D CNN has achieved accuracy and f1-score of 0.96 and 0.95
-                respectively.
-                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:qjMakFHDy7sC"
-                   class="doi" target="_blank">[Google Scholar]</a>
+                researchers to monitor COVID-19.
+                <span class="more-content">
+                    Unfortunately, inspecting each case involves multiple radiology experts and time, which is one of the critical tasks in such an outbreak. In this paper, a deep learning approach, 2D convolutional neural networks (CNN) has been used to classify healthy and COVID-19 chest X-ray images. “Curated Dataset for COVID-19 Posterior-Anterior Chest Radiography Images (X-Rays)” dataset has been used in this study. The major indicator of this study is the accuracy of the proposed model. The classification model, 2D CNN has achieved accuracy and f1-score of 0.96 and 0.95 respectively.
+                </span>
+                <span onclick="toggleAbstract(this)" class="read-more-btn">Read More</span>
             </div>
         </div>
 
@@ -393,23 +394,19 @@
                 Bengali Language.</b> In: 2018 International Conference on Computer, Communication, Chemical, Material
                 and Electronic Engineering (IC4ME2), Rajshahi, Bangladesh, 2018, pp. 1-4, <a
                     href="https://ieeexplore.ieee.org/abstract/document/8465680" class="doi"
-                    target="10.1109/IC4ME2.2018.8465680">doi</a>
+                    target="10.1109/IC4ME2.2018.8465680">[DOI]</a> <a
+                    href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:qjMakFHDy7sC"
+                    class="doi" target="_blank">[Google Scholar]</a>
                 <br><br>
 
                 <strong>Abstract:</strong> This paper presents a model to convert natural Bengali language to text. The
                 proposed model requires the usage of the open sourced framework Sphinx 4 which is written in Java and
                 provides the required procedural coding tools to develop an acoustic model for a custom language like
-                Bengali. Our main objective was to ensure that the system was adequately trained on a word by word basis
-                from various speakers so that it could recognize new speakers fluently. We used a free digital audio
-                workstation (DAW) called Audacity to manipulate the collected recording data via continuous frequency
-                profiling techniques to reduce the Signal-to-Noise-Ratio (SNR), vocal leveling, normalization and
-                syllable splitting as well as merging which ensure an error free 1:1-word mapping of each utterance with
-                its mirror transcription file text. To evaluate the performance of proposed model, we utilize an audio
-                dataset of recorded speech data from 10 individual speakers consisting of both males and females using
-                custom transcript files that we wrote. Experimental results demonstrate that the proposed model exhibits
-                average 71.7% accuracy for our tested dataset.
-                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jv_yP-sAAAAJ&citation_for_view=Jv_yP-sAAAAJ:qjMakFHDy7sC"
-                   class="doi" target="_blank">[Google Scholar]</a>
+                Bengali.
+                <span class="more-content">
+                    Our main objective was to ensure that the system was adequately trained on a word by word basis from various speakers so that it could recognize new speakers fluently. We used a free digital audio workstation (DAW) called Audacity to manipulate the collected recording data via continuous frequency profiling techniques to reduce the Signal-to-Noise-Ratio (SNR), vocal leveling, normalization and syllable splitting as well as merging which ensure an error free 1:1-word mapping of each utterance with its mirror transcription file text. Experimental results demonstrate that the proposed model exhibits average 71.7% accuracy for our tested dataset.
+                </span>
+                <span onclick="toggleAbstract(this)" class="read-more-btn">Read More</span>
             </div>
         </div>
     </div>
@@ -653,7 +650,26 @@
             </div>
         </div>
 
-        <div class="publication-year">Volunteering & Leadership</div>
+        <div class="publication-item">
+            <span class="title">Student Mentor</span>
+            <div class="meta">
+                <img src="brac.png" alt="BRACU" style="height: 48px; vertical-align: middle; margin-right: 5px;">
+                <a href="https://www.bracu.ac.bd/" target="_blank" style="color: #2563eb; font-weight: bold;">BRAC
+                    University</a> | Office of Student Affairs | <i><b>Jan 2017 - Aug 2018</b></i> <br><br>
+                I have been mentoring 25 freshers in the university under First Year Advising Team in BRAC University.
+                Responsibilities Include:
+                <ul style="list-style: disc; margin-left: 20px; margin-top: 10px; color: #444;">
+                    <li>Helping the Freshmen solving academic queries.</li>
+                    <li>Informing them about the details of University.</li>
+                    <li>Sitting with them for an Interaction Session on FYAT DAY.</li>
+                    <li>Arranging Individual meeting with Faculty Adviser twice in every semester.</li>
+                    <li>Analysis the result of their first two semester and suggesting proper tutorials.</li>
+                    <li>Following up the tutorials and advising.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="publication-year">Leadership</div>
 
         <div class="publication-item">
             <span class="title">Assistant Director Of Human Resources</span>
@@ -706,7 +722,7 @@
         </div>
     </div>
 
-    <div id="about" class="page-section">
+    <div id="!about" class="page-section">
         <h2 class="section-title">About Me</h2>
         <div class="intro-text">
             <p style="margin-bottom:1rem;">
@@ -747,6 +763,19 @@
 
         // Scroll to top
         window.scrollTo(0, 0);
+    }
+
+    function toggleAbstract(btn) {
+        // Find the span containing the hidden text (previous sibling)
+        var moreText = btn.previousElementSibling;
+
+        if (moreText.style.display === "none" || moreText.style.display === "") {
+            moreText.style.display = "inline";
+            btn.innerHTML = "Read Less";
+        } else {
+            moreText.style.display = "none";
+            btn.innerHTML = "Read More";
+        }
     }
 </script>
 
