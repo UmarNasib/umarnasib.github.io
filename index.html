@@ -9,230 +9,7 @@
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        /* --- DESIGN CONFIGURATION --- */
-        :root {
-            --sidebar-bg: #1e3a8a;
-            --sidebar-text: #ffffff;
-            --main-bg: #ffffff;
-            --text-color: #333333;
-            --link-color: #2563eb;
-            --heading-font: 'Playfair Display', serif;
-            --body-font: 'Roboto', sans-serif;
-            --sidebar-width: 400px;
-        }
-
-        /* Reset & Base */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: var(--body-font);
-            color: var(--text-color);
-            background-color: var(--main-bg);
-            display: flex;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-        a { text-decoration: none; color: inherit; transition: 0.2s; }
-        a:hover { color: var(--link-color); }
-        ul { list-style: none; }
-
-        /* --- SIDEBAR --- */
-        .sidebar {
-            width: var(--sidebar-width);
-            background-color: var(--sidebar-bg);
-            color: var(--sidebar-text);
-            position: fixed;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            padding: 3rem 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            z-index: 1000;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.2);
-            margin-bottom: 1.5rem;
-        }
-
-        .sidebar h1 {
-            font-family: var(--heading-font);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
-        }
-
-        .sidebar p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 2rem;
-            line-height: 1.5;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: auto;
-            margin-bottom: 2rem;
-        }
-
-        .social-icons a {
-            color: rgba(255,255,255,10);
-            font-size: 2.0rem;
-            transition: 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #fff;
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
-            margin-top: auto;
-        }
-
-        /* --- MAIN CONTENT AREA --- */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            padding: 3rem 3%;
-            max-width: 100%;
-            width: 100%;
-        }
-
-        /* Top Navigation */
-        .top-nav {
-            margin-bottom: 4rem;
-            padding: 1rem 3% 1rem 3%;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            z-index: 100;
-            backdrop-filter: blur(5px);
-            margin-left: -3%;
-            margin-right: -3%;
-            width: 106%;
-        }
-
-        .top-nav ul {
-            display: flex;
-            gap: 25px;
-        }
-
-        .top-nav a {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #555;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        .top-nav a.active { color: var(--link-color); border-bottom: 2px solid var(--link-color); }
-
-        /* Page Sections */
-        .page-section { display: none; animation: fadeIn 0.4s ease; }
-        .page-section.active { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .publication-year {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1e3a8a;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
-            margin: 1.0rem 0 1.0rem 0;
-        }
-
-        .publication-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .publication-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        h2.section-title {
-            font-size: 1.8rem;
-            color: #111;
-            margin: 3rem 0 1.5rem 0;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
-        }
-
-        h2.section-title:first-child { margin-top: 0; }
-
-        /* --- RESEARCH STYLE --- */
-        .publication-item { margin-bottom: 1.5rem; }
-        .publication-item .title { font-weight: 700; color: #222; display: block; }
-        .publication-item .meta { color: #555; font-size: 0.95rem; }
-        .publication-item a.doi { color: var(--link-color); font-size: 0.85rem; margin-left: 5px; }
-
-        /* --- POSTS STYLE --- */
-        .posts-year { font-size: 1.5rem; font-weight: 700; color: #ccc; margin: 2rem 0 1rem 0; }
-        .post-item { display: flex; align-items: baseline; margin-bottom: 0.8rem; }
-        .post-date { width: 100px; font-size: 0.9rem; color: #888; flex-shrink: 0; }
-        .post-link { font-weight: 600; color: #333; }
-        .post-link:hover { text-decoration: underline; color: var(--link-color); }
-
-        /* --- HOME & ABOUT STYLE --- */
-        .intro-text { font-size: 1.1rem; color: #444; margin-bottom: 2rem; }
-        .btn-link {
-            display: inline-block;
-            margin-top: 1rem;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--link-color);
-        }
-
-        /* READ MORE / LESS STYLES */
-        .more-content {
-            display: none;
-        }
-
-        .read-more-btn {
-            color: var(--link-color);
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-left: 3px;
-        }
-
-        .read-more-btn:hover {
-            text-decoration: underline;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            body { flex-direction: column; }
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 2rem 1rem;
-            }
-            .main-content { margin-left: 0; padding: 2rem 1.5rem; }
-            .top-nav { overflow-x: auto; white-space: nowrap; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -267,6 +44,7 @@
         <ul>
             <li><a onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
             <li><a onclick="showSection('research')" id="nav-research">Research</a></li>
+            <li><a onclick="showSection('education')" id="nav-education">Education</a></li>
             <li><a onclick="showSection('works')" id="nav-works">Works</a></li>
             <li><a onclick="showSection('achievements')" id="nav-achievements">Achievements</a></li>
             <li><a onclick="showSection('posts')" id="nav-posts">Posts</a></li>
@@ -283,7 +61,7 @@
         <p class="intro-text" style="font-size: 1.15rem; color: #555;">
             Hello, I'm <b>Abdullah Umar Nasib</b>. <br><br>
             A Senior QA Engineer and Researcher dedicated to <i><q>breaking code to make it stronger.</q></i>"
-            Currently, I co-lead a 22-member team at <b>Therap (BD) Ltd.</b>, driving automation at scale while
+            Currently, I co-lead a 25-member team at <b>Therap (BD) Ltd.</b>, driving automation at scale while
             researching the intersection of NLP and Software Engineering.
         </p>
 
@@ -297,7 +75,7 @@
 
             <div style="flex: 1; min-width: 200px; background: #f8fafc; padding: 1.5rem; border-left: 5px solid #28a745; border-radius: 4px;">
                 <i class="fas fa-users" style="font-size: 1.5rem; color: #28a745; margin-bottom: 10px;"></i>
-                <h3 style="font-size: 1.8rem; margin: 5px 0; color: #333;">22+ Engineers</h3>
+                <h3 style="font-size: 1.8rem; margin: 5px 0; color: #333;">25 Engineers</h3>
                 <p style="font-size: 0.9rem; color: #666;">Co-leading a high-performance QA Team</p>
             </div>
 
@@ -478,6 +256,162 @@
                 <span onclick="toggleAbstract(this)" class="read-more-btn">Read More</span>
             </div>
         </div>
+    </div>
+
+    <div id="education" class="page-section">
+        <h2 class="section-title">Academic Background</h2>
+
+        <div class="publication-item">
+            <span class="title">Master of Engineering in Computer Science and Engineering</span>
+            <div class="meta">
+                <img src="brac.png" alt="BRACU" style="height: 40px; vertical-align: middle; margin-right: 5px;">
+                <a href="https://www.bracu.ac.bd/" target="_blank" style="color: #2563eb; font-weight: bold;">BRAC
+                    University</a>
+                | Dhaka, Bangladesh | <i><b>Graduated: Feb 2025</b></i>
+
+                <div class="highlight-box">
+                    <i class="fas fa-medal" style="color: #d4af37; margin-right: 5px;"></i>
+                    <b>Vice-Chancellor's Medalist:</b> Achieved highest CGPA in the program.
+                </div>
+
+                <ul style="list-style: disc; margin-left: 20px; margin-top: 10px; color: #444;">
+                    <li><b>Research Focus:</b> Natural Language Processing (NLP), Machine Learning, Artificial
+                        Intelligence, and Software
+                        Engineering.
+                    <li>
+                        <b>Thesis:</b>
+                        <a href="https://dspace.bracu.ac.bd/xmlui/handle/10361/21226" target="_blank"
+                           style="color: #2563eb; text-decoration: none;">
+                            <i>An Approach to Validate References in Scholarly Articles using RoBERTa</i>
+                        </a>
+                        <a href="https://dspace.bracu.ac.bd/xmlui/handle/10361/21226" target="_blank"
+                           style="font-size: 0.8rem; color: #666; margin-left: 5px;">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <div style="margin-top: 15px;">
+                    <span style="font-size: 0.9rem; font-weight: 700; color: #555; text-transform: uppercase;">Key Coursework</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+                        <span class="msc-course">Symbolic Machine Learning</span>
+                        <span class="msc-course">Neural Networks & Fuzzy Systems</span>
+                        <span class="msc-course">Advanced Artificial Intelligence</span>
+                        <span class="msc-course">Advanced Database Systems</span>
+                        <span class="msc-course">Distributed Computing Systems</span>
+                        <span class="msc-course">Syntactic Pattern Recognition</span>
+                        <span class="msc-course">Information Management</span>
+                        <span class="msc-course">Decision Support Systems</span>
+                        <span class="msc-course">Business Statistics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">Bachelor of Science in Computer Science</span>
+            <div class="meta">
+                <img src="brac.png" alt="BRACU" style="height: 40px; vertical-align: middle; margin-right: 5px;">
+                <a href="https://www.bracu.ac.bd/" target="_blank" style="color: #2563eb; font-weight: bold;">BRAC
+                    University</a>
+                | Dhaka, Bangladesh | <i><b>Graduated: Nov 2019</b></i>
+                <br>
+
+                <div style="margin-top: 8px; color: #444;">
+                    <i class="fas fa-star" style="color: #f59e0b; margin-right: 5px;"></i> <b>High Distinction</b>
+                </div>
+
+                <div style="margin-top: 10px; padding: 10px; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 4px;">
+                    <i class="fas fa-certificate" style="color: #f59e0b; margin-right: 5px;"></i>
+                    <b>Dean's List Recognition:</b> Awarded for academic excellence in <b>Spring 2015</b> and <b>Fall
+                    2016</b>.
+                </div>
+
+                <ul style="list-style: disc; margin-left: 20px; margin-top: 10px; color: #444;">
+                    <li>
+                        <b>Thesis:</b>
+                        <a href="https://dspace.bracu.ac.bd/xmlui/handle/10361/21226" target="_blank"
+                           style="color: #2563eb; text-decoration: none;">
+                            <i>Real time bengali speech to text conversion using CMU sphinx</i>
+                        </a>
+                        <a href="https://dspace.bracu.ac.bd/xmlui/handle/10361/9546" target="_blank"
+                           style="font-size: 0.8rem; color: #666; margin-left: 5px;">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </li>
+                    <li><b>Leadership:</b>
+                        <ul style="list-style: circle; margin-left: 20px; margin-top: 5px; color: #444;">
+                            <li>Director of Human Resource at <b>Robotics Club of BRAC University (ROBU)</b></li>
+                            <li>Asst. Director of Human Resource at <b>BRAC University Computer Club (BUCC)</b></li>
+                            <li>Director of Human Resource at <b>BRAC University Chess Club (BUCHC)</b></li>
+                        </ul>
+                    </li>
+                    <li><b>Teaching:</b>
+                        <ul style="list-style: circle; margin-left: 20px; margin-top: 5px; color: #444;">
+                            <li>Undergraduate Teacher Assistant for <b>Programming Language I (Java)</b></li>
+                            <li>Instructor of Programming Activity at <b>BRAC University Residential Campus</b></li>
+                            <li>Student Tutor at <b>Office of Student Affairs</b> for <b>Programming Language I
+                                (Java)</b></li>
+                            <li>Student Mentor for <b>First Year Advising Team (FYAT)</b></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div style="margin-top: 15px;">
+                    <span style="font-size: 0.9rem; font-weight: 700; color: #555; text-transform: uppercase;">Key Coursework</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+                        <span class="bsc-key-coursework">Software Engineering</span>
+                        <span class="bsc-key-coursework">System Analysis & Design</span>
+                        <span class="bsc-key-coursework">Algorithms & Data Structures</span>
+                        <span class="bsc-key-coursework">Artificial Intelligence</span>
+                        <span class="bsc-key-coursework">Compiler Design</span>
+                        <span class="bsc-key-coursework">Operating Systems</span>
+                        <span class="bsc-key-coursework">Computer Networks</span>
+                        <span class="bsc-key-coursework">Automata & Computability</span>
+                        <span class="bsc-key-coursework">Computer Architecture</span>
+                        <span class="bsc-key-coursework">Computer Graphics</span>
+                        <span class="bsc-key-coursework">Data Communications</span>
+                        <span class="bsc-key-coursework">Database Systems</span>
+                        <span class="bsc-key-coursework">Cloud Computing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">Higher Secondary Certificate (HSC)</span>
+            <div class="meta">
+                <i class="fas fa-university" style="font-size: 1.2rem; margin-right: 8px; color: #555;"></i>
+                <a href="http://sacsat.edu.bd/" target="_blank" style="color: #2563eb; font-weight: bold;">Shimanta
+                    Adarsha College</a>
+                | Satkhira, Bangladesh | Science Group | <i><b>2013</b></i>
+                <br>
+                <ul style="list-style: disc; margin-left: 20px; margin-top: 5px; color: #444;">
+                    <li>Achieved GPA 4.70/5.00</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <span class="title">Secondary School Certificate (SSC)</span>
+            <div class="meta">
+                <i class="fas fa-school" style="font-size: 1.1rem; margin-right: 8px; color: #555;"></i>
+                <a href="https://alipurunionsecondaryschool.jessoreboard.gov.bd/" target="_blank"
+                   style="color: #2563eb; font-weight: bold;">Alipur Union Secondary School</a> | Satkhira, Bangladesh |
+                Science Group | <i><b>2011</b></i>
+
+                <div style="margin-top: 10px; padding: 10px; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 4px;">
+                    <i class="fas fa-award" style="color: #f59e0b; margin-right: 5px;"></i>
+                    <b>Government Scholarship:</b> Awarded for excellent academic results obtained in SSC Examination
+                    (2-year stipend).
+                </div>
+
+                <ul style="list-style: disc; margin-left: 20px; margin-top: 10px; color: #444;">
+                    <li>Achieved GPA 5.00/5.00</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
     <div id="posts" class="page-section">
@@ -1060,7 +994,7 @@
                 I am a <b>Vice-Chancellor Medalist</b> and a Senior Software Quality Assurance Engineer with over
                 <b>7 years</b> of industry experience. Currently, I sit at the intersection of practical engineering and
                 academic research.
-                At <b>Therap (BD) Ltd.</b>, I co-lead a 22-member QA team, orchestrating end-to-end automation
+                At <b>Therap (BD) Ltd.</b>, I co-lead a 25-member QA team, orchestrating end-to-end automation
                 strategies that keep critical state-contract projects
                 compliant and bug-free.
             </p>
@@ -1085,7 +1019,7 @@
                 <ul style="list-style: none; padding-left: 0;">
                     <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
                                                         style="color: #28a745; margin-right: 8px;"></i>
-                        <b>Leadership:</b> Co-leading 22+ QA Engineers
+                        <b>Leadership:</b> Co-leading 25 QA Engineers
                     </li>
                     <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"
                                                         style="color: #28a745; margin-right: 8px;"></i>
@@ -1114,11 +1048,11 @@
                     </li>
                     <li style="margin-bottom: 10px;"><i class="fas fa-users"
                                                         style="color: #1e3a8a; margin-right: 8px;"></i>
-                        <b>Mentorship:</b> 7+ years training new recruits
+                        <b>Mentorship:</b> 5+ years training new recruits
                     </li>
                     <li style="margin-bottom: 10px;"><i class="fas fa-chess-knight"
                                                         style="color: #1e3a8a; margin-right: 8px;"></i>
-                        <b>Interests:</b> Chess, Robotics, & AI Research
+                        <b>Interests:</b> Cricket, Chess, Gardening, & Travelling
                     </li>
                 </ul>
             </div>
@@ -1140,38 +1074,7 @@
     </div>
 </main>
 
-<script>
-    function showSection(sectionId) {
-        // Hide all sections
-        document.querySelectorAll('.page-section').forEach(sec => {
-            sec.classList.remove('active');
-        });
-        // Show selected section
-        document.getElementById(sectionId).classList.add('active');
-
-        // Update Nav Links
-        document.querySelectorAll('.top-nav a').forEach(link => {
-            link.classList.remove('active');
-        });
-        document.getElementById('nav-' + sectionId).classList.add('active');
-
-        // Scroll to top
-        window.scrollTo(0, 0);
-    }
-
-    function toggleAbstract(btn) {
-        // Find the span containing the hidden text (previous sibling)
-        var moreText = btn.previousElementSibling;
-
-        if (moreText.style.display === "none" || moreText.style.display === "") {
-            moreText.style.display = "inline";
-            btn.innerHTML = "Read Less";
-        } else {
-            moreText.style.display = "none";
-            btn.innerHTML = "Read More";
-        }
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
