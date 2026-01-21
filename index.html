@@ -47,7 +47,7 @@
             <li><a onclick="showSection('education')" id="nav-education">Education</a></li>
             <li><a onclick="showSection('works')" id="nav-works">Works</a></li>
             <li><a onclick="showSection('achievements')" id="nav-achievements">Achievements</a></li>
-            <li><a onclick="showSection('posts')" id="nav-posts">Posts</a></li>
+            <li><a onclick="showSection('blogs')" id="nav-blogs">Blogs</a></li>
             <li><a onclick="showSection('about')" id="nav-about">About</a></li>
         </ul>
     </nav>
@@ -414,7 +414,7 @@
 
     </div>
 
-    <div id="posts" class="page-section">
+    <div id="blogs" class="page-section">
 
         <div class="publication-year">2025</div>
         <div class="post-item">
@@ -1058,18 +1058,153 @@
             </div>
         </div>
 
-        <h3 style="font-size: 1.3rem; margin-top: 3rem; margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 1px; color: #444;">
-            Technical Arsenal
-        </h3>
+        <div id="technical-arsenal" style="margin-top: 3rem;">
+            <h3 style="font-size: 1.5rem; margin: 0 auto 3rem auto; width: fit-content; text-align: center; text-transform: uppercase; letter-spacing: 1.5px; color: #444; border-bottom: 3px solid #1e3a8a; padding-bottom: 5px;">
+                Technical Arsenal</h3>
 
-        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
-            <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Java & Python</span>
-            <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Selenium & Playwright</span>
-            <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">API Automation</span>
-            <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Postman</span>
-            <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">SQL</span>
-            <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">PyTorch</span>
-            <span style="background: #f1f5f9; padding: 8px 16px; border-radius: 20px; font-weight: 600; color: #334155; border: 1px solid #e2e8f0;">Jenkins</span>
+            <div class="skill-category">
+                <div class="publication-year">Programming Languages</div>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Java</span><span>95%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Python</span><span>90%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>JavaScript</span><span>85%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>SQL</span><span>90%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="publication-year">Test Automation & Quality Assurance</div>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Selenium</span><span>95%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Playwright</span><span>90%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>RestAssured</span><span>90%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>JMeter</span><span>85%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="publication-year">Version Control & CI/CD</div>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Git</span><span>95%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>GitHub & Actions</span><span>90%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Bitbucket</span><span>95%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="publication-year">API & Data Handling</div>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Postman</span><span>95%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>RESTful APIs</span><span>95%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Swagger/OpenAPI</span><span>85%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>JSON & XML</span><span>90%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <div class="publication-year">AI & Machine Learning</div>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <div class="skill-info"><span>PyTorch</span><span>85%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>TensorFlow</span><span>80%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>OpenCV & NumPy</span><span>85%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Sklearn & RL</span><span>80%</span></div>
+                        <div class="progress-bg">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
