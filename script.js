@@ -28,3 +28,47 @@ function toggleAbstract(btn) {
         btn.innerHTML = "Read More";
     }
 }
+
+/* --- FILTER FUNCTION --- */
+function filterGallery(category, btn) {
+    // 1. Remove active class from all buttons
+    let buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // 2. Add active class to clicked button
+    btn.classList.add('active');
+
+    // 3. Filter Images
+    let items = document.querySelectorAll('.gallery-item');
+
+    items.forEach(item => {
+        if (category === 'all') {
+            item.classList.remove('hide-item');
+        } else {
+            if (item.getAttribute('data-category') === category) {
+                item.classList.remove('hide-item');
+            } else {
+                item.classList.add('hide-item');
+            }
+        }
+    });
+}
+
+/* --- LIGHTBOX FUNCTIONS --- */
+function openLightbox(imgElement) {
+    var modal = document.getElementById("lightbox-modal");
+    var modalImg = document.getElementById("lightbox-img");
+
+    modal.style.display = "flex"; // Use flex to center easily
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+
+    modalImg.src = imgElement.src; // Set popup image to clicked image
+}
+
+function closeLightbox(event) {
+    if (event.target.id === "lightbox-modal" || event.target.classList.contains("close-lightbox")) {
+        var modal = document.getElementById("lightbox-modal");
+        modal.style.display = "none";
+    }
+}

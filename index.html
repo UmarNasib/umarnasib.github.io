@@ -48,6 +48,7 @@
             <li><a onclick="showSection('works')" id="nav-works">Works</a></li>
             <li><a onclick="showSection('achievements')" id="nav-achievements">Achievements</a></li>
             <li><a onclick="showSection('blogs')" id="nav-blogs">Blogs</a></li>
+            <li><a onclick="showSection('travel')" id="nav-travel">Travel</a></li>
             <li><a onclick="showSection('about')" id="nav-about">About</a></li>
         </ul>
     </nav>
@@ -979,6 +980,63 @@
             </a>
         </div>
 
+    </div>
+
+    <div id="travel" class="page-section">
+        <h2 class="section-title">My Travel Diaries</h2>
+        <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.05rem;">
+            <i class="fas fa-quote-left" style="color: #2563eb; margin-right: 5px;"></i>
+            <b>We travel not to escape life, but for life not to escape us.</b>
+            <i class="fas fa-quote-right" style="color: #2563eb; margin-right: 5px;"></i> <br>
+            Here are some moments captured from my journeys across different landscapes.
+        </p>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+            <button class="filter-btn" onclick="filterGallery('bangladesh', this)">Bangladesh</button>
+            <button class="filter-btn" onclick="filterGallery('thailand', this)">Thailand</button>
+            <button class="filter-btn" onclick="filterGallery('india', this)">India</button>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="bangladesh">
+                <img src="boga-lake.jpg" alt="Boga Lake" class="gallery-img" onclick="openLightbox(this)">
+                <div class="gallery-info">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Boga+Lake+Bandarban" target="_blank"
+                       class="gallery-location">
+                        <i class="fas fa-map-marker-alt" style="color: #e11d48;"></i> Boga Lake, Bandarban
+                    </a>
+                    <span class="gallery-date">22 December, 2015</span>
+                    <p class="gallery-caption">
+                        "Where dragon myths sleep beneath the ripples. Perched 1,200 feet above sea level, this ancient
+                        volcanic lake holds a silence so deep it feels sacred—a hidden sapphire in the heart of the
+                        hills."
+                    </p>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="bangladesh">
+                <img src="keokra-dong.jpg" alt="Boga Lake" class="gallery-img" onclick="openLightbox(this)">
+                <div class="gallery-info">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Keokradong+Bandarban" target="_blank"
+                       class="gallery-location">
+                        <i class="fas fa-map-marker-alt" style="color: #e11d48;"></i> Keokradong, Bandarban
+                    </a>
+                    <span class="gallery-date">22 December, 2015</span>
+                    <p class="gallery-caption">
+                        "A solitary silhouette etched against the fading twilight. High atop the peak, this skeletal
+                        guardian witnesses the quiet surrender of day to night, proving that even in decay, there is a
+                        haunting, resilient beauty."
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="lightbox-modal" class="lightbox" onclick="closeLightbox(event)">
+        <span class="close-lightbox" onclick="closeLightbox(event)">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
     </div>
 
     <div id="about" class="page-section">

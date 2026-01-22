@@ -303,3 +303,158 @@ h2.section-title:first-child { margin-top: 0; }
     .main-content { margin-left: 0; padding: 2rem 1.5rem; }
     .top-nav { overflow-x: auto; white-space: nowrap; }
 }
+/* --- TRAVEL DIARY STYLES --- */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 24px;
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #555;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #1e3a8a; /* Your primary blue */
+    color: white;
+    border-color: #1e3a8a;
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #f1f5f9;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    cursor: zoom-in; /* Shows the user they can click */
+    transition: opacity 0.2s;
+}
+
+.gallery-img:hover {
+    opacity: 0.9;
+}
+
+.gallery-info {
+    padding: 20px;
+}
+
+/* Location Link Styling */
+.gallery-location {
+    font-size: 0.85rem;
+    color: #2563eb;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.gallery-location:hover {
+    color: #1e3a8a;
+    text-decoration: underline;
+}
+
+.gallery-location i {
+    margin-right: 6px;
+    font-size: 1rem;
+}
+
+.gallery-date {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    display: block;
+    font-weight: 500;
+}
+
+.gallery-caption {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.6;
+    font-family: 'Caveat', cursive; /* The change */
+}
+
+.hide-item {
+    display: none;
+}
+
+/* --- LIGHTBOX (FULL SCREEN POPUP) --- */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999; /* Sit on top of everything */
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1000px;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    animation: zoomIn 0.3s;
+}
+
+@keyframes zoomIn {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close-lightbox:hover,
+.close-lightbox:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
