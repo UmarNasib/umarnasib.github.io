@@ -72,3 +72,24 @@ function closeLightbox(event) {
         modal.style.display = "none";
     }
 }
+
+/* --- IN-PLACE BLOG TOGGLE FUNCTIONS --- */
+function toggleBlog(blogId) {
+    var content = document.getElementById(blogId);
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+}
+
+// Function to open a specific blog and scroll to it (used from the Home page)
+function openSpecificBlog(blogId) {
+    var content = document.getElementById(blogId);
+    content.style.display = "block"; // Force it open
+
+    // Smooth scroll to the blog post
+    setTimeout(() => {
+        content.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+}
